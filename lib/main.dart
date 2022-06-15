@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:prompter_app_panel/pages/home_page.dart';
 import 'package:prompter_app_panel/pages/login_page.dart';
+
+import 'components/app_colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,11 +29,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Prompter App Panel',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: AppColors.primaryColor,
+          secondary: AppColors.darkGrey,
+        ),
       ),
-      home: LoginPageUI()
+      home: LoginPageUI(),
     );
   }
 }
-
-

@@ -8,25 +8,14 @@ class FirebaseService {
         .get();
   }
 
-  static Future<bool> updatePrompterSettings(
-      Map<String, dynamic> prompterSettings) async {
+  static Future<bool> updateTexts(List<dynamic> texts) async {
     await FirebaseFirestore.instance
         .collection('prompter_app')
         .doc('1EESEtyLtTy447I2qL8K')
-        .update({'prompter_settings': prompterSettings})
-        .whenComplete(() {
+        .update({'texts': texts}).whenComplete(() {
       return true;
     });
     return false;
   }
 
-  static Future<bool> updateTextStyle(Map<String, dynamic> textStyle) async {
-    await FirebaseFirestore.instance
-        .collection('prompter_app')
-        .doc('1EESEtyLtTy447I2qL8K')
-        .update({'text_style': textStyle}).whenComplete(() {
-      return true;
-    });
-    return false;
-  }
 }
